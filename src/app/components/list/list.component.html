@@ -1,0 +1,117 @@
+<div class="container">
+    <br>
+    <div class="row">
+        <p>Se encontraron {{amount}} resultados</p>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <div class="specialCard">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        {{action}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <p class="dropdown-item">Comprar</p>
+                        <p class="dropdown-item">Alquiler</p>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        {{type}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <p class="dropdown-item" *ngFor="let option of options">{{option}}</p>
+
+                    </div>
+                </div>
+
+                <p class="prices"> Precio</p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Precio desde
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <p class="dropdown-item">100.000&#8364;</p>
+                        <p class="dropdown-item">300.000&#8364;</p>
+                        <p class="dropdown-item">500.000&#8364;</p>
+                        <p class="dropdown-item">700.000&#8364;</p>
+                        <p class="dropdown-item">1.000.000&#8364;</p>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Precio hasta
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <p class="dropdown-item">100.000&#8364;</p>
+                        <p class="dropdown-item">300.000&#8364;</p>
+                        <p class="dropdown-item">500.000&#8364;</p>
+                        <p class="dropdown-item">700.000&#8364;</p>
+                        <p class="dropdown-item">1.000.000&#8364;</p>
+
+                    </div>
+                </div>
+
+                <p class="prices"> Caracteristicas</p>
+                <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Habitaciones
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <p class="dropdown-item">1</p>
+                            <p class="dropdown-item">2</p>
+                            <p class="dropdown-item">3</p>
+                            <p class="dropdown-item">4+;</p>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Baños
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                <p class="dropdown-item">1</p>
+                                <p class="dropdown-item">2</p>
+                                <p class="dropdown-item">3+</p>
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3" style="max-width: 740px;" *ngFor="let property of properties">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="../../../assets/img/casa.jpg" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">{{property.title}}</h4>
+                            <h5 class="card-text">{{property.priceToString}}&#8364;</h5>
+                            <p class="card-text">{{property.description}}</p>
+                            <div class="row">
+                                <div class="col"></div>
+                                <button class="col-3">
+                                    <i class="fas fa-envelope envelope"></i>
+                                    <p class="card-text"><small class="text-muted">Contactar</small></p>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

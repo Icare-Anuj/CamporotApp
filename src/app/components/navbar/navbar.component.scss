@@ -1,0 +1,32 @@
+
+.home{
+    font-family: 'Kapsalon-Regular';
+    font-size: 42px;
+    color: white;
+}
+
+span:focus{
+    color: white;
+    text-decoration: none;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: -webkit-fill-available !important; 
+}
+
+.col-1 {
+    flex: 0 0 8.333333%;
+    max-width: 5.33%;
+}
+
+.logo {
+    margin-top: 7px;
+}
+
+.color {
+    background-color: lightslategrey;
+}

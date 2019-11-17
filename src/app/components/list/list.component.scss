@@ -1,0 +1,58 @@
+p {
+    font-family: 'Traffolight';
+}
+
+.card {
+    height: 210px;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin:auto;
+}
+
+.envelope {
+    margin-left: 15px;
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+.col-3 {
+    flex: 0 0 14%;
+    max-width: 25%;
+    padding: 0;
+    border: 0;
+}
+.specialCard {
+    height: 60%;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    width: 330px !important;
+    background-color: gainsboro;
+   
+}
+
+.dropdown-toggle{
+    background-color: white;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.prices {
+    margin-left: 15px;
+    margin-bottom: 7px;
+}
