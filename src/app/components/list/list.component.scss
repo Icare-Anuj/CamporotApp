@@ -1,6 +1,4 @@
-p {
-    font-family: 'Traffolight';
-}
+
 
 .card {
     height: 210px;
@@ -30,7 +28,7 @@ p {
     border: 0;
 }
 .specialCard {
-    height: 60%;
+    height: 49%;
     margin-bottom: 20px;
     position: relative;
     display: flex;
@@ -55,4 +53,20 @@ p {
 .prices {
     margin-left: 15px;
     margin-bottom: 7px;
+}
+
+.filterButton {
+    width: 100%;
+    background-color: lightslategray;
+    margin-top: 27px;
+    color: white;
+}
+
+
+.searchRow {
+    width: 99%;
+}
+
+.cursor {
+    cursor: default;
 }

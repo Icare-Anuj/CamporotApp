@@ -3,6 +3,8 @@
     font-family: 'Kapsalon-Regular';
     font-size: 42px;
     color: white;
+    margin-left: 5px;
+    cursor: default;
 }
 
 span:focus{
@@ -19,14 +21,33 @@ span:focus{
 }
 
 .col-1 {
-    flex: 0 0 8.333333%;
-    max-width: 5.33%;
+
+    flex: 0 0 6.333333%;
+    max-width: 0.33%;
+    
 }
 
 .logo {
-    margin-top: 7px;
+    margin-top: -14px;
 }
 
 .color {
-    background-color: lightslategrey;
+    background-color: black;
 }
+
+.loginIcon {
+    color: darkkhaki;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.logIn {
+    position: relative;
+    top: 49px;
+    font-size: 12px;
+    right: 30px;
+    color: white;
+    cursor: pointer;
+    
+}
+

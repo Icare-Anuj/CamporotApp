@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit {
 
     localStorage.setItem('action', JSON.stringify(this.filter.action));
     localStorage.setItem('type', JSON.stringify(this.filter.type));
+    localStorage.setItem('location', JSON.stringify(this.filter.location));
 
 
     // this.filterService.filter(string).subscribe(data =>{

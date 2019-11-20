@@ -1,0 +1,42 @@
+.background {
+    background-color: lightslategray;
+    width: 100vw;
+    height: 100vh;
+}
+
+.font {
+    font-family: 'Kapsalon-Regular';
+    font-size: 56px
+}
+#cover {
+    background: #222 url('../../../assets/img/fondo.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* only used for background overlay not needed for centering */
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.lightBlue{
+    background-color: darkkhaki;
+}

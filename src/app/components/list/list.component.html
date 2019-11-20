@@ -1,7 +1,16 @@
 <div class="container">
     <br>
-    <div class="row">
-        <p>Se encontraron {{amount}} resultados</p>
+    <div class="row searchRow">
+        <p class="col cursor">Se encontraron {{amount}} resultados:</p>
+        <!-- <input class="col" class="inputSearch col" type="text" value="Madrid" /> -->
+        <div class="input-group mb-3 col">
+                <input type="text" class="form-control" [placeholder]="location" aria-label="Recipient's username" aria-describedby="button-addon2"
+                (change)="updateLocation($event)" >
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="filterApply()">Buscar</button>
+                </div>
+              </div>
+        
     </div>
     <br>
     <div class="row">
@@ -28,37 +37,31 @@
                     </div>
                 </div>
 
-                <p class="prices"> Precio</p>
+                <p class="prices cursor"> Precio(&#8364;)</p>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Precio desde
+                        aria-haspopup="true" aria-expanded="false" >
+                       <span> {{priceMin.toLocaleString()}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <p class="dropdown-item">100.000&#8364;</p>
-                        <p class="dropdown-item">300.000&#8364;</p>
-                        <p class="dropdown-item">500.000&#8364;</p>
-                        <p class="dropdown-item">700.000&#8364;</p>
-                        <p class="dropdown-item">1.000.000&#8364;</p>
+                        <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMinSelected(price)">{{price.toLocaleString()}}&#8364;</p>
+
 
                     </div>
                 </div>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Precio hasta
+                        <span> {{priceMax.toLocaleString()}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <p class="dropdown-item">100.000&#8364;</p>
-                        <p class="dropdown-item">300.000&#8364;</p>
-                        <p class="dropdown-item">500.000&#8364;</p>
-                        <p class="dropdown-item">700.000&#8364;</p>
-                        <p class="dropdown-item">1.000.000&#8364;</p>
+                            <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMaxSelected(price)">{{price.toLocaleString()}}&#8364;</p>
+
 
                     </div>
                 </div>
 
-                <p class="prices"> Caracteristicas</p>
+                <p class="prices cursor"> Caracteristicas</p>
                 <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -68,7 +71,7 @@
                             <p class="dropdown-item">1</p>
                             <p class="dropdown-item">2</p>
                             <p class="dropdown-item">3</p>
-                            <p class="dropdown-item">4+;</p>
+                            <p class="dropdown-item">4+</p>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -82,6 +85,10 @@
                                 <p class="dropdown-item">3+</p>
                             </div>
                         </div>
+                    
+                        <button class="btn filterButton" type="button" (click)="filterApply()">
+                        Aplicar filtros
+                    </button>  
 
 
             </div>
@@ -94,9 +101,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h4 class="card-title">{{property.title}}</h4>
-                            <h5 class="card-text">{{property.priceToString}}&#8364;</h5>
-                            <p class="card-text">{{property.description}}</p>
+                            <h4 class="card-title cursor">{{property.title}}</h4>
+                            <h5 class="card-text cursor">{{property.priceToString}}&#8364;</h5>
+                            <p class="card-text cursor">{{property.description}}</p>
                             <div class="row">
                                 <div class="col"></div>
                                 <button class="col-3">
