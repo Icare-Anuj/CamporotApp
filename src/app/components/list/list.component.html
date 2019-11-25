@@ -60,46 +60,22 @@
 
                     </div>
                 </div>
-
-                <p class="prices cursor"> Caracteristicas</p>
-                <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Habitaciones
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <p class="dropdown-item">1</p>
-                            <p class="dropdown-item">2</p>
-                            <p class="dropdown-item">3</p>
-                            <p class="dropdown-item">4+</p>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Baños
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <p class="dropdown-item">1</p>
-                                <p class="dropdown-item">2</p>
-                                <p class="dropdown-item">3+</p>
-                            </div>
-                        </div>
-                    
-                        <button class="btn filterButton" type="button" (click)="filterApply()">
-                        Aplicar filtros
-                    </button>  
-
-                    <button class="btn filterButton" type="button" (click)="filterApply()">
-                        Crear propiedad
-                    </button>  
             </div>
+                                
+            <button class="btn filterButton" type="button" (click)="filterApply()">
+                Aplicar filtros
+            </button>  
+                
+            <button type="button" (click)="goToUploadScreen()">
+                Crear propiedad
+            </button>  
+            
         </div>
         <div class="col" *ngIf="!noValues">
             <div class="card mb-3" style="max-width: 740px;" *ngFor="let property of properties">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img [src]="property.imageMain" class="card-img" alt="...">
+                        <img [src]="property.images[0].path" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

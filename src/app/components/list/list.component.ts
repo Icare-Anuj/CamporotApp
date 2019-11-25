@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PropertyModel } from 'src/app/models/property.model';
 import { FilterModel } from 'src/app/models/filter.model';
 import { FilterService } from 'src/app/services/filter.service';
@@ -19,10 +20,10 @@ export class ListComponent implements OnInit {
   type: string;
   location: string;
   prices = [100000, 200000, 300000, 400000, 700000, 1000000];
-  options = ['Viviendas', 'Locales', 'Edificios', 'Terrenos'];
+  options = ['Vivienda', 'Piso', 'Edificio', 'Terreno'];
   noValues = false;
   properties: PropertyModel[];
-  constructor(private filterService: FilterService, private dataStorageService: DataStorageService) { }
+  constructor(private filterService: FilterService, private dataStorageService: DataStorageService, private _router: Router) { }
 
   ngOnInit() {
     this.properties = this.dataStorageService.filterQuerys;
@@ -115,5 +116,7 @@ export class ListComponent implements OnInit {
     console.log(this.filterQuerys)
   }
 
-
+  goToUploadScreen() {
+    this._router.navigate(['/upload'])
+  }
 }
