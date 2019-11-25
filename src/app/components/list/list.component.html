@@ -22,8 +22,8 @@
                         {{action}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <p class="dropdown-item">Comprar</p>
-                        <p class="dropdown-item">Alquiler</p>
+                        <p class="dropdown-item" (click)="actionSelected('Comprar')">Comprar</p>
+                        <p class="dropdown-item" (click)="actionSelected('Alquiler')">Alquiler</p>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -32,7 +32,7 @@
                         {{type}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <p class="dropdown-item" *ngFor="let option of options">{{option}}</p>
+                        <p class="dropdown-item" *ngFor="let option of options" (click)="kindSelected(option)">{{option}}</p>
 
                     </div>
                 </div>
@@ -93,11 +93,11 @@
 
             </div>
         </div>
-        <div class="col">
+        <div class="col" *ngIf="!noValues">
             <div class="card mb-3" style="max-width: 740px;" *ngFor="let property of properties">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="../../../assets/img/casa.jpg" class="card-img" alt="...">
+                        <img [src]="property.imageMain" class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -117,6 +117,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div *ngIf=noValues>
+            <span class="noValues">No se encontraron inmuebles con las caracteristicas especificadas</span>
         </div>
 
     </div>

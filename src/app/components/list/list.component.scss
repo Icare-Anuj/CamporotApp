@@ -28,7 +28,7 @@
     border: 0;
 }
 .specialCard {
-    height: 49%;
+    height: 85%;
     margin-bottom: 20px;
     position: relative;
     display: flex;
@@ -57,7 +57,7 @@
 
 .filterButton {
     width: 100%;
-    background-color: lightslategray;
+    background-color: darkkhaki;
     margin-top: 27px;
     color: white;
 }
@@ -69,4 +69,8 @@
 
 .cursor {
     cursor: default;
+}
+
+.noValues {
+    margin-left: 111px;
 }

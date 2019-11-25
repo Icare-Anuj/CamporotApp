@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropertyModel } from 'src/app/models/property.model';
 import { FilterModel } from 'src/app/models/filter.model';
 import { FilterService } from 'src/app/services/filter.service';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 
 @Component({
   selector: 'app-list',
@@ -17,59 +18,27 @@ export class ListComponent implements OnInit {
   action: string;
   type: string;
   location: string;
-  prices = [100000, 200000, 300000, 400000, 700000, 1000000]
-  options = ['Vivienda', 'Obra nueva', 'Local y nave', 'Garaje', 'Oficina', 'Trastero', 'Edificio'];
-  properties: PropertyModel[] = [
-    {
-      title: 'Casa de 120 m2 a la venta en Avenida de America',
-      description: '3 cuartos y 2 baños',
-      kind: 'Vivienda',
-      price: 250000,
-      state: 'Madrid',
-      sale: true,
-      property_id: '1',
-      images: [],
-
-    },
-    {
-      title: 'Piso tipo estudio ubicado en Republica Argentina',
-      description: 'Cocina y espacios luminosos',
-      kind: 'Vivienda',
-      price: 320000,
-      state: 'Madrid',
-      sale: true,
-      property_id: '2',
-      images: []
-    },
-    {
-      title: 'Piso en venta por razones familiares',
-      description: 'Hermoso piso que tenemos necesidad de vender',
-      kind: 'Vivienda',
-      price: 180000,
-      state: 'Madrid',
-      sale: true,
-      property_id: '3',
-      images: []
-    },
-    {
-      title: 'Piso frente a plaza España',
-      description: '2 cuartos y 1 baño',
-      kind: 'Vivienda',
-      price: 210000,
-      state: 'Madrid',
-      sale: true,
-      property_id: '4',
-      images: []
-    }
-  ];
-  constructor(private filterService: FilterService) { }
+  prices = [100000, 200000, 300000, 400000, 700000, 1000000];
+  options = ['Viviendas', 'Locales', 'Edificios', 'Terrenos'];
+  noValues = false;
+  properties: PropertyModel[];
+  constructor(private filterService: FilterService, private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.amount = this.properties.length;
-    for (let x = 0; x < this.properties.length; x++) {
-      this.properties[x].priceToString = this.properties[x].price.toLocaleString();
+    this.properties = this.dataStorageService.filterQuerys;
+    console.log(this.properties);
+    if(this.properties && this.properties !== undefined || this.properties !== null) {
+      this.amount = this.properties.length;
+      for (let x = 0; x < this.properties.length; x++) {
+        this.properties[x].priceToString = this.properties[x].price.toLocaleString();
+        // const image =this. properties[x].images.length > 0 ? this.properties[x].images[0].path : require("../../../assets/img/logo.jpg")
+      }
+    } else {
+      this.noValues = true;
     }
+
     this.action = JSON.parse(localStorage.getItem('action'));
+
     this.type = JSON.parse(localStorage.getItem('type'));
     this.location = JSON.parse(localStorage.getItem('location'));
 
@@ -77,8 +46,13 @@ export class ListComponent implements OnInit {
     this.filterQuerys = new FilterModel();
     this.filterQuerys.action = this.action;
     this.filterQuerys.type = this.type;
+    if(this.action === 'Comprar') {
+      this.filterQuerys.sale = true;
+    }else {
+      this.filterQuerys.sale = false;
+    }
 
-    if (this.location === null) {
+    if (this.location === null || this.location === undefined)  {
       this.location = 'Provincia, barrio, etc';
     } else {
       this.filterQuerys.location = this.location;
@@ -91,8 +65,6 @@ export class ListComponent implements OnInit {
 
 
   priceMinSelected(price: string) {
-
-
     this.filterQuerys.price_min = parseFloat(price)
     console.log(this.filterQuerys);
     this.priceMin = price
@@ -105,19 +77,31 @@ export class ListComponent implements OnInit {
     console.log(this.filterQuerys);
   }
 
-  filterApply() {
-    let string = '';
-    for (var val in this.filterQuerys) {
-      if (this.filterQuerys[val] === undefined || this.filterQuerys[val] === null) {
-      } else {
-        string += ' ' + this.filterQuerys[val];
-      }
-    }
-    console.log(string)
+  actionSelected(action: string) {
+    this.filterQuerys.action = action;
+    this.action = action;
+    console.log(this.filterQuerys);
+  }
 
-    // this.filterService.filter(string).subscribe(data =>{
-    //  console.log(data);
-    // });
+  kindSelected(kind: string) {
+    this.filterQuerys.type = kind;
+    this.type = kind;
+    console.log(this.filterQuerys);
+  }
+
+  filterApply() {
+
+    this.filterService.filter(this.filterQuerys).subscribe(data =>{
+     this.properties = data;
+     if(data.length > 1) {
+      for (let x = 0; x < this.properties.length; x++) {
+        this.properties[x].priceToString = this.properties[x].price.toLocaleString();
+      }
+     } else {
+      this.noValues = true;
+     }
+
+    });
 
 
     // localStorage.setItem('action', JSON.stringify(this.filterQuerys.action));

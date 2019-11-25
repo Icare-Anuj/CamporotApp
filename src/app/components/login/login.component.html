@@ -1,26 +1,38 @@
 <div class="background">
-        <section id="cover" class="min-vh-100">
-                <div id="cover-caption">
-                    <div class="container">
-                        <div class="row text-white">
-                            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                                <h1 class="display-4 py-2 text-truncate font">Comporota Group</h1>
-                                <div class="px-2">
-                                    <form action="" class="justify-content-center">
-                                        <div class="form-group">
-                                            <label class="sr-only">Usuario</label>
-                                            <input type="text" class="form-control" placeholder="Usuario">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only">Contraseña</label>
-                                            <input type="text" class="form-control" placeholder="Contraseña">
-                                        </div>
-                                        <button type="submit" class="btn lightBlue btn-lg">Iniciar sesión</button>
-                                    </form>
-                                </div>
+    <section id="cover" class="min-vh-100">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h1 class="display-4 py-2 text-truncate font">Comporota Group</h1>
+                        <div class="px-2">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="unauthorize"> 
+                                <strong>Acceso denegado. </strong> Usuario sin autorización
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
+                            <form action="" class="justify-content-center">
+                                <div class="form-group">
+                                    <label class="sr-only">Email</label>
+                                    <input type="email" class="form-control" placeholder="Email" email
+                                        (change)="handleChange($event)" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Contraseña</label>
+                                    <input type="text" class="form-control" placeholder="Contraseña"
+                                        (change)="handleChange($event)" name="password">
+                                    <span *ngIf="requiredField">*Todos los campos son requeridos</span>
+                                </div>
+
+                                <button type="submit" class="btn lightBlue btn-lg" (click)="onSubmit($event)">Iniciar
+                                    sesión</button>
+
+                            </form>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 </div>
