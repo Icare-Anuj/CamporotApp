@@ -68,7 +68,12 @@
 
             <button class="btn filterButton" type="button" (click)="filterApply()">
                 Aplicar filtros
-            </button>
+            </button>  
+                
+            <button type="button" (click)="goToUploadScreen()">
+                Crear propiedad
+            </button>  
+            
         </div>
         <div class="col" *ngIf="!noValues">
             <div class="card mb-3" style="max-width: 740px;" *ngFor="let property of properties">

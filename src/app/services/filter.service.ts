@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class FilterService {
   params;
-  private filterRoute = 'http://localhost:5000/api/properties';
+  private filterRoute = 'https://grupo-camporota-api.herokuapp.com/api/properties';
 
   constructor(private http: HttpClient) { }
 
