@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   type: string;
   location: string;
   prices = [100000, 200000, 300000, 400000, 700000, 1000000];
-  options = ['Viviendas', 'Locales', 'Edificios', 'Terrenos'];
+  options = ['Vivienda', 'Piso', 'Edificio', 'Terreno'];
   noValues = false;
   properties: PropertyModel[];
   constructor(private filterService: FilterService, private dataStorageService: DataStorageService) { }

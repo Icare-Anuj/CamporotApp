@@ -10,6 +10,7 @@ import { ListComponent } from './components/list/list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UploadComponent } from './components/upload/upload.component';
     ListComponent,
     LoginComponent,
     ToastComponent,
-    UploadComponent
+    UploadComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
