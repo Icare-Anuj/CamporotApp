@@ -1,0 +1,23 @@
+.title{
+    font-family: 'Kapsalon-Regular';
+    font-size: 42px;
+    margin: auto 20px;
+}
+.color {
+    background-color: darkkhaki;
+}
+p {
+    font-family: 'Kapsalon-Regular';
+    font-size: 22px
+}
+.hidden {
+    // margin-bottom: 40px;
+    overflow: hidden;
+    background: #222 url('../../../assets/img/fondo.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    color: white;
+}
+.top {
+    margin-top: -25px;
+}

@@ -4,13 +4,14 @@
         <p class="col cursor">Se encontraron {{amount}} resultados:</p>
         <!-- <input class="col" class="inputSearch col" type="text" value="Madrid" /> -->
         <div class="input-group mb-3 col">
-                <input type="text" class="form-control" [placeholder]="location" aria-label="Recipient's username" aria-describedby="button-addon2"
-                (change)="updateLocation($event)" >
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="filterApply()">Buscar</button>
-                </div>
-              </div>
-        
+            <input type="text" class="form-control" [placeholder]="location" aria-label="Recipient's username"
+                aria-describedby="button-addon2" (change)="updateLocation($event)">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    (click)="filterApply()">Buscar</button>
+            </div>
+        </div>
+
     </div>
     <br>
     <div class="row">
@@ -32,7 +33,8 @@
                         {{type}}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <p class="dropdown-item" *ngFor="let option of options" (click)="kindSelected(option)">{{option}}</p>
+                        <p class="dropdown-item" *ngFor="let option of options" (click)="kindSelected(option)">
+                            {{option}}</p>
 
                     </div>
                 </div>
@@ -40,11 +42,12 @@
                 <p class="prices cursor"> Precio(&#8364;)</p>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" >
-                       <span> {{priceMin.toLocaleString()}}</span>
+                        aria-haspopup="true" aria-expanded="false">
+                        <span> {{priceMin.toLocaleString()}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMinSelected(price)">{{price.toLocaleString()}}&#8364;</p>
+                        <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMinSelected(price)">
+                            {{price.toLocaleString()}}&#8364;</p>
 
 
                     </div>
@@ -55,16 +58,17 @@
                         <span> {{priceMax.toLocaleString()}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMaxSelected(price)">{{price.toLocaleString()}}&#8364;</p>
+                        <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMaxSelected(price)">
+                            {{price.toLocaleString()}}&#8364;</p>
 
 
                     </div>
                 </div>
             </div>
-                                
+
             <button class="btn filterButton" type="button" (click)="filterApply()">
-                    Aplicar filtros
-                </button>  
+                Aplicar filtros
+            </button>
         </div>
         <div class="col" *ngIf="!noValues">
             <div class="card mb-3" style="max-width: 740px;" *ngFor="let property of properties">
@@ -76,25 +80,27 @@
                         <div class="card-body">
                             <h4 class="card-title cursor">{{property.title}}</h4>
                             <h5 class="card-text cursor">{{property.priceToString}}&#8364;</h5>
-                            <p class="card-text cursor">{{property.description}}</p>
-                            <div class="row">
-                                <div class="col"></div>
-                                <button class="col-3">
-                                    <i class="fas fa-envelope envelope"></i>
-                                    <p class="card-text"><small class="text-muted">Contactar</small></p>
-                                </button>
-
-                            </div>
-
+                            <p class="card-text cursor">{{truncateString(property.description, 46)}}</p>
+                            <div class="row justify-content-end">
+                                    <button class="col-3 info" (click)="goToDetail(property)">
+                                            <i class="fas fa-plus envelope"></i>
+                                            <p class="card-text"><small class="text-muted">Ver más</small></p>
+                                        </button>
+                                    <button class="col-3 call">
+                                        <i class="fas fa-envelope envelope"></i>
+                                        <p class="card-text"><small class="text-muted">Contactar</small></p>
+                                    </button>
+        
+                                </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-        <div *ngIf=noValues>
-            <span class="noValues">No se encontraron inmuebles con las caracteristicas especificadas</span>
+            <div *ngIf=noValues>
+                <span class="noValues">No se encontraron inmuebles con las caracteristicas especificadas</span>
+            </div>
+
         </div>
 
     </div>
-
-</div>
