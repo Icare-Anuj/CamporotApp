@@ -69,6 +69,38 @@
             </p>
           </div>
         </div>
+        <div class="col" *ngIf="!noValues">
+            <div class="card mb-3" style="max-width: 740px;" *ngFor="let property of properties">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img [src]="property.images[0].path" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title cursor">{{property.title}}</h4>
+                            <h5 class="card-text cursor">{{property.priceToString}}&#8364;</h5>
+                            <p class="card-text cursor">{{truncateString(property.description, 46)}}</p>
+                            <div class="row justify-content-end">
+                                    <button class="col-3 info"  *ngIf="isLogin">
+                                            <i class="fas fa-edit"></i>
+                                            <p class="card-text"><small class="text-muted">Editar</small></p>
+                                    </button>
+                                    <button class="col-3 info" (click)="delete(property.property_id)" *ngIf="isLogin">
+                                            <i class="fas fa-trash"></i>
+                                            <p class="card-text"><small class="text-muted">Eliminar</small></p>
+                                    </button>
+                                    <button class="col-3 info" (click)="goToDetail(property)" >
+                                            <i class="fas fa-plus envelope"></i>
+                                            <p class="card-text"><small class="text-muted">Ver más</small></p>
+                                        </button>
+                                    <button class="col-3 call">
+                                        <i class="fas fa-envelope envelope"></i>
+                                        <p class="card-text"><small class="text-muted">Contactar</small></p>
+                                    </button>
+
+        
+                            </div>
+                        </div>
 
         <p class="prices cursor">Precio(&#8364;)</p>
         <div class="dropdown">

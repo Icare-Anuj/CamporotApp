@@ -8,11 +8,17 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  isLogin: boolean;
   loginForm: boolean;
   constructor(private router: Router) { }
 
   ngOnInit() {
 
+    if (localStorage.getItem('token') === null || localStorage.getItem('token') === undefined) {
+      this.isLogin = false;
+    } else {
+      this.isLogin = true;
+    }
   }
 
   goToLogin() {
