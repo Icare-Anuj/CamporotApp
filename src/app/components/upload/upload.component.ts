@@ -29,7 +29,7 @@ export class UploadComponent implements OnInit {
       allFiles.push(fileInput.files[i])
     }
 
-
+    console.log(this.propertyQuery)
     formData.append('title', this.propertyQuery['titulo'])
     formData.append('description', this.propertyQuery['descripcion'])
     formData.append('kind', this.propertyQuery['tipo'])
@@ -37,9 +37,10 @@ export class UploadComponent implements OnInit {
     formData.append('price', this.propertyQuery['precio'])
     formData.append('sale', this.propertyQuery['compra'])
     formData.append('files[]', allFiles)
+
     this.propertyService.createProperty(formData).subscribe(data => {
       console.log(data)
-      if (data.success == true) {
+        if (data.success == true) {
 
       }
     })
