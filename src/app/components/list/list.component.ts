@@ -180,8 +180,9 @@ export class ListComponent implements OnInit {
 
     const filter = id;
     this.properties = this.properties.filter((item) => {
-    return (item.property_id.indexOf(filter) >= 0);
+    return (item.property_id !== filter);
     });
+    this.properties = this.dataStorageService.filterQuerys;
     this.router.navigateByUrl('/login', {skipLocationChange: true}).then(()=>
     this.router.navigate(['/list']))
 
