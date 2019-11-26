@@ -9,7 +9,7 @@ import { PropertyModel } from 'src/app/models/property.model';
 })
 export class UploadComponent implements OnInit {
 
-  propertyQuery: PropertyModel;
+  propertyQuery: any = {}; 
   // propertyQuery: any = {};
   titulo: string;
   descripcion: string;
