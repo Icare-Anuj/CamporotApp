@@ -29,13 +29,13 @@ export class UploadComponent implements OnInit {
       allFiles.push(fileInput.files[i])
     }
 
-    console.log(this.propertyQuery)
+    const sale = this.propertyQuery['compra'] === "on" ? true : false
     formData.append('title', this.propertyQuery['titulo'])
     formData.append('description', this.propertyQuery['descripcion'])
     formData.append('kind', this.propertyQuery['tipo'])
     formData.append('state', this.propertyQuery['estado'])
     formData.append('price', this.propertyQuery['precio'])
-    formData.append('sale', this.propertyQuery['compra'])
+    formData.append('sale', sale)
     formData.append('files[]', allFiles)
 
     this.propertyService.createProperty(formData).subscribe(data => {
