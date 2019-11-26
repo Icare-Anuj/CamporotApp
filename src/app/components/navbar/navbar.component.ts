@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
          if (data.success === true) {
           localStorage.removeItem('token');
           this.router.navigate(['/home'])
-          this.isLogin= true;
+          this.isLogin= false;
          } else {
            alert('Error en logout')
          }
