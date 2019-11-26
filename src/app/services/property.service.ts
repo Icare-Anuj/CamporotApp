@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 const httpOptions = {
   headers: new HttpHeaders({
     // "Content-Type": "multipart/form-data",
-    'Authorization': `Bearer ${localStorage.getItem('token').replace(/"/g, '')}`
+    // 'Authorization': `Bearer ${localStorage.getItem('token').replace(/"/g, '')}`
   })
 };
 

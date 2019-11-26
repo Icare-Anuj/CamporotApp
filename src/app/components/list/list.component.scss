@@ -28,7 +28,7 @@
     border: 0;
 }
 .specialCard {
-    height: 49%;
+    // height: 49%;
     margin-bottom: 20px;
     position: relative;
     display: flex;
@@ -74,6 +74,7 @@
 
 .noValues {
     margin-left: 111px;
+    color: black;
 }
 
 .call {
@@ -84,3 +85,11 @@
 .info {
     margin-top: -8px;
 }
+.createButton {
+    background-color: #444444;
+    margin-top: 9px;
+    color: white;
+    margin-left: 18px;
+    width: 100%;
+}
+

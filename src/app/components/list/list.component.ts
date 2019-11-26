@@ -4,7 +4,6 @@ import { PropertyModel } from 'src/app/models/property.model';
 import { FilterModel } from 'src/app/models/filter.model';
 import { FilterService } from 'src/app/services/filter.service';
 import { DataStorageService } from 'src/app/services/data-storage.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -28,7 +27,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.properties = this.dataStorageService.filterQuerys;
-    console.log(this.properties);
     if((this.properties && this.properties !== undefined )|| ( this.properties && this.properties !== null)) {
       this.amount = this.properties.length;
       for (let x = 0; x < this.properties.length; x++) {
@@ -36,6 +34,7 @@ export class ListComponent implements OnInit {
         // const image =this. properties[x].images.length > 0 ? this.properties[x].images[0].path : require("../../../assets/img/logo.jpg")
       }
     } else {
+      this.amount = 0;
       this.noValues = true;
     }
 
@@ -109,6 +108,7 @@ export class ListComponent implements OnInit {
       }
      } else {
       this.noValues = true;
+      this.amount = 0;
      }
 
     }, 

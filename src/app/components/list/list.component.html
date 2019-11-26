@@ -70,7 +70,7 @@
                 Aplicar filtros
             </button>  
                 
-            <button type="button" (click)="goToUploadScreen()">
+            <button class="btn createButton"  type="button" (click)="goToUploadScreen()">
                 Crear propiedad
             </button>  
             
@@ -102,10 +102,11 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf=noValues>
-                <span class="noValues">No se encontraron inmuebles con las caracteristicas especificadas</span>
+        </div>
+        <div class="col" *ngIf=noValues>
+                <div class="row" style="max-width: 740px;">
+            <span class="noValues">No se encontraron inmuebles con las caracteristicas especificadas</span>
             </div>
-
         </div>
 
     </div>
