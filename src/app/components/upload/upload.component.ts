@@ -40,6 +40,7 @@ export class UploadComponent implements OnInit {
 
 
   handleChange = e => {
+    console.log(e.property.name);
     this.propertyQuery[e.target.name] = e.target.value
     console.log(this.propertyQuery);
 
