@@ -23,9 +23,18 @@ export class ListComponent implements OnInit {
   options = ['Vivienda', 'Piso', 'Edificio', 'Terreno'];
   noValues = false;
   properties: PropertyModel[];
+  isLogin: boolean;
   constructor(private filterService: FilterService, private dataStorageService: DataStorageService, private router: Router) { }
 
   ngOnInit() {
+
+
+    if (localStorage.getItem('token') === null || localStorage.getItem('token') === undefined) {
+      this.isLogin = false;
+    } else {
+      this.isLogin = true;
+    }
+
     this.properties = this.dataStorageService.filterQuerys;
     if((this.properties && this.properties !== undefined )|| ( this.properties && this.properties !== null)) {
       this.amount = this.properties.length;
@@ -38,10 +47,18 @@ export class ListComponent implements OnInit {
       this.noValues = true;
     }
 
-    this.action = JSON.parse(localStorage.getItem('action'));
+    this.action = localStorage.getItem('action');
 
-    this.type = JSON.parse(localStorage.getItem('type'));
-    this.location = JSON.parse(localStorage.getItem('location'));
+    this.type = localStorage.getItem('type');
+    this.location = localStorage.getItem('location');
+
+    if(this.action === null || this.action === undefined) {
+      this.action = 'Comprar';
+    } 
+    if(this.type === null || this.type === undefined) {
+      this.type = 'Vivienda';
+    } 
+    
 
 
     this.filterQuerys = new FilterModel();
@@ -53,7 +70,7 @@ export class ListComponent implements OnInit {
       this.filterQuerys.sale = false;
     }
 
-    if (this.location === null || this.location === undefined)  {
+    if (this.location === null || this.location === undefined || this.location === "null")  {
       this.location = 'Provincia, barrio, etc';
     } else {
       this.filterQuerys.location = this.location;
@@ -100,7 +117,14 @@ export class ListComponent implements OnInit {
     this.filterService.filter(this.filterQuerys).subscribe(data =>{
      this.properties = data;
      this.dataStorageService.filterQuerys = this.properties;
-     if(data.length > 1) {
+     this.action = this.filterQuerys.action;
+     localStorage.removeItem('action');
+     localStorage.setItem('action', this.action);
+     localStorage.removeItem('type');
+     localStorage.setItem('type', this.type);
+
+     this.type = this.filterQuerys.type;
+     if(data.length >= 1) {
       for (let x = 0; x < this.properties.length; x++) {
         this.properties[x].priceToString = this.properties[x].price.toLocaleString();
         this.router.navigateByUrl('/login', {skipLocationChange: true}).then(()=>
@@ -141,6 +165,33 @@ export class ListComponent implements OnInit {
   goToDetail(property: PropertyModel) {
     localStorage.setItem('property', JSON.stringify(property));
     this.router.navigate(['/detail']);
+  }
+
+  delete(id: string) {
+    console.log(id)
+    this.filterService.delete(id).subscribe(data => {
+    
+    let ids = []; 
+    if (data.success === true) {
+    //   for(let x = 0; this.properties.length; x++) {
+    //       ids.push(this.properties[x].property_id);
+    //   }
+    //  this.properties = ids.filter(property_id => property_id !== id)
+
+    const filter = id;
+    this.properties = this.properties.filter((item) => {
+    return (item.property_id.indexOf(filter) >= 0);
+    });
+    this.router.navigateByUrl('/login', {skipLocationChange: true}).then(()=>
+    this.router.navigate(['/list']))
+
+    console.log(this.properties);
+
+    } else {
+      alert('Error al borrar la propiedad deseada');
+    }
+
+    });
   }
 
 

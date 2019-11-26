@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
          this.unauthorize =true;
         } else {
           localStorage.setItem('token', JSON.stringify(data.access_token));
-          this.router.navigate(['/upload']);
+          this.router.navigate(['/list']);
         }
         console.log(data);
       }, error => console.log(error))

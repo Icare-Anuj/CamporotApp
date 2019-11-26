@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     this.filter = new FilterModel()
     this.filter.action = 'Comprar';
     this.filter.sale = true;
-    this.filter.type = this.selected
+    this.filter.type = this.selected;
   
   }
 
@@ -100,9 +100,9 @@ export class HomeComponent implements OnInit {
     // this._router.navigate(['/list']);
 
 
-    localStorage.setItem('action', JSON.stringify(this.filter.action));
-    localStorage.setItem('type', JSON.stringify(this.filter.type));
-    localStorage.setItem('location', JSON.stringify(this.filter.location));
+    localStorage.setItem('action', this.filter.action);
+    localStorage.setItem('type', this.filter.type);
+    localStorage.setItem('location', this.filter.location);
 
 
      this.filterService.filter(this.filter).subscribe(data =>{

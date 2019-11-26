@@ -9,10 +9,10 @@
             </div>
         </div>
 
-        <div class="col-1 loginIcon" (click)="goToLogin()">
+        <div class="col-1 loginIcon" (click)="goToLogin()" *ngIf="!isLogin">
             <i class="fas fa-user-circle"></i>
         </div>
-        <span (click)="goToLogin()" class="logIn">Iniciar sesión</span>
+        <span (click)="goToLogin()" *ngIf="!isLogin" class="logIn">Iniciar sesión</span>
     </div>
     <!-- <div class="row justify-content-end">
         <span>Iniciar sesión</span>
