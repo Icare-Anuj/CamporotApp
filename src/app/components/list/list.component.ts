@@ -195,5 +195,16 @@ export class ListComponent implements OnInit {
     });
   }
 
+  goToUploadScreen() {
+    localStorage.removeItem('propertyToEdit');
+    this.router.navigate(['/upload']);
+
+  }
+
+  edit(property: PropertyModel) {
+    localStorage.setItem('propertyToEdit', JSON.stringify(property));
+    this.router.navigate(['/upload']);
+  }
+
 
 }

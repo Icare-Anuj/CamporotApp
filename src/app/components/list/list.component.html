@@ -87,7 +87,7 @@
                             <h5 class="card-text cursor">{{property.priceToString}}&#8364;</h5>
                             <p class="card-text cursor">{{truncateString(property.description, 46)}}</p>
                             <div class="row justify-content-end">
-                                    <button class="col-3 info"  *ngIf="isLogin">
+                                    <button class="col-3 info"  *ngIf="isLogin" (click)="edit(property)">
                                             <i class="fas fa-edit"></i>
                                             <p class="card-text"><small class="text-muted">Editar</small></p>
                                     </button>
