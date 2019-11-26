@@ -1,1 +1,54 @@
-<p>detail works!</p>
+<section class="container">
+    <div class="row color">
+        <span class="title">
+            {{property.title}}
+        </span>
+    </div>
+    <div class="card row">
+        <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide *ngFor="let image of images">
+                <div class="picsum-img-wrapper">
+                    <img [src]="image.path" alt="Random first slide" style="width: 100%; height: 50vh">
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+    <div class="row">
+        <div class="card col shadow p-3 mb-5 bg-white rounded">
+            <div class="row justify-content-center">
+                <p>Ubicación</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.state}}</span>
+
+            </div>
+        </div>
+        <div class="card col shadow p-3 mb-5 bg-white rounded">
+            <div class="row justify-content-center">
+                <p>Tipo de vivienda</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.kind}}</span>
+            </div>
+
+        </div>
+   
+    <div class="card col shadow p-3 mb-5 bg-white rounded">
+        <div class="row justify-content-center">
+            <p>Precio</p>
+        </div>
+        <div class="row justify-content-center">
+            <span>{{property.priceToString}}&#8364;</span>
+        </div>
+    </div>
+    </div>
+    
+    <div class="row justify-content-center color top">
+        <p>Acerca de la vivienda</p>
+    </div>
+    <div class="row card shadow p-3 mb-5 bg-white rounded ">
+        <span class="col">
+            {{property.description}}
+        </span>
+    </div>
+</section>
