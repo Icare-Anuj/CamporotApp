@@ -19,7 +19,7 @@ export class AppComponent {
     }
   
 
-  onActivate() {
+  onActivate(e) {
     console.log(this.router.url)
 
 
