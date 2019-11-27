@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class PropertyService {
 
-  private createPropetyRoute = 'https://grupo-camporota-api.herokuapp.com/api/properties';
+  private createPropetyRoute = 'http://localhost:5000.com/api/properties';
 
   constructor(private http: HttpClient) { }
 

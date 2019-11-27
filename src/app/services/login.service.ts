@@ -14,8 +14,8 @@ const httpOptions = {
 })
 export class LoginService {
 
-  private loginRoute = 'https://grupo-camporota-api.herokuapp.com/api/login';
-  private logoutRoute = 'https://grupo-camporota-api.herokuapp.com/api/logout';
+  private loginRoute = 'http://localhost:5000/api/login';
+  private logoutRoute = 'http://localhost:5000/api/logout';
 
   constructor(private http: HttpClient) { }
 
@@ -25,10 +25,10 @@ export class LoginService {
   }
 
   logout(): Observable<any> {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token').replace(/"/g, '') : ''
     const httpOptions = {
       headers: new HttpHeaders({
-        // "Content-Type": "multipart/form-data",
-        'Authorization': `Bearer ${localStorage.getItem('token').replace(/"/g, '')}`
+        'Authorization': `Bearer ${token}`
       })
     };
     return this.http.delete<any>(this.logoutRoute, httpOptions);
