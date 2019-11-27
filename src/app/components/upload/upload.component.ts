@@ -59,8 +59,13 @@ export class UploadComponent implements OnInit {
     e.preventDefault();
     const formData: any = new FormData();
     const fileInput = document.getElementById("files") as HTMLInputElement;
-    for (var i = 0; i < fileInput.files.length; i++) {
-      formData.append("files[]", fileInput.files[i], fileInput.files[i].name);
+    if (fileInput.files.length == 0) {
+      alert("Debe agregar imagenes")
+      return  
+    } else {
+      for (var i = 0; i < fileInput.files.length; i++) {
+        formData.append("files[]", fileInput.files[i], fileInput.files[i].name);
+      }
     }
 
     const sale = this.propertyQuery["sale"] === "on" ? true : false;
@@ -71,24 +76,35 @@ export class UploadComponent implements OnInit {
     formData.append("price", this.propertyQuery["price"]);
     formData.append("sale", sale);
 
-    this.propertyService.createProperty(formData).subscribe(
-      data => {
-        if (data.success == true) {
-          alert("Propiedad creada");
-        } else {
-          alert("Ha habido un error");
+    const checkTitle = this.propertyQuery["title"] == null || this.propertyQuery["title"] == ''
+    const checkDescription = this.propertyQuery["description"] == null || this.propertyQuery["description"] == ''
+    const checkKind = this.propertyQuery["kind"] == null || this.propertyQuery["kind"] == ''
+    const checkState = this.propertyQuery["state"] == null || this.propertyQuery["state"] == ''
+    const checkPrice = this.propertyQuery["price"] == null || this.propertyQuery["price"] == ''
+
+    if (checkTitle || checkDescription || checkKind || checkState || checkPrice) {
+      alert('Por favor llene todos los campos')
+      return
+    } else {
+      this.propertyService.createProperty(formData).subscribe(
+        data => {
+          if (data.success == true) {
+            alert("Propiedad creada");
+          } else {
+            alert("Ha habido un error");
+          }
+        },
+        error => {
+          if (error.error.msg == "Token has expired") {
+            alert("Necesitas iniciar sesion de nuevo");
+            localStorage.removeItem("token");
+            window.location.href = "/login";
+          } else {
+            alert("Error al actualizar propiedad, por favor trate de nuevo");
+          }
         }
-      },
-      error => {
-        if (error.error.msg == "Token has expired") {
-          alert("Necesitas iniciar sesion de nuevo");
-          localStorage.removeItem("token");
-          window.location.href = "/login";
-        } else {
-          alert("Error al actualizar propiedad, por favor trate de nuevo");
-        }
-      }
-    );
+      );
+    }
   }
 
   onUpdate(e) {
