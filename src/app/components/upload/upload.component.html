@@ -91,19 +91,19 @@
                   />
                 </div>
 
-                <button *ngIf="!isUpdate"
+                <button *ngIf="isUpdate"
                   type="submit"
                   class="btn lightBlue btn-lg"
                   (click)="onUpdate($event)"
                 >
-                  Crear
+                  Actualizar
                 </button>
-                <button *ngIf="isUpdate"
+                <button *ngIf="!isUpdate"
                 type="submit"
                 class="btn lightBlue btn-lg"
                 (click)="onSubmit($event)"
               >
-                Actualizar
+                Crear
               </button>
               </form>
             </div>

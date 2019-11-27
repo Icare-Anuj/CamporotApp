@@ -31,8 +31,10 @@ export class UploadComponent implements OnInit {
       this.estado = this.propertyToEdit.state;
       this.precio = this.propertyToEdit.price;
       this.compra = this.propertyToEdit.sale;
+
+      console.log(this.precio)
       this.propertyQuery = new PropertyModel(this.titulo, this.descripcion, this.tipo, this.precio, this.estado, this.compra,this.propertyToEdit.property_id, this.propertyToEdit.images)
-    
+      console.log(this.propertyQuery)
     } else {
       this.isUpdate = false;
     }
@@ -40,7 +42,6 @@ export class UploadComponent implements OnInit {
 
 
   handleChange = e => {
-    console.log(e.property.name);
     this.propertyQuery[e.target.name] = e.target.value
     console.log(this.propertyQuery);
 
@@ -54,6 +55,7 @@ export class UploadComponent implements OnInit {
     for (var i=0; i<fileInput.files.length; i++) {
       allFiles.push(fileInput.files[i])
     }
+    formData.append('files[]', allFiles)
 
     const sale = this.propertyQuery['compra'] === "on" ? true : false
     formData.append('title', this.propertyQuery['titulo'])
@@ -62,7 +64,6 @@ export class UploadComponent implements OnInit {
     formData.append('state', this.propertyQuery['estado'])
     formData.append('price', this.propertyQuery['precio'])
     formData.append('sale', sale)
-    formData.append('files[]', allFiles)
 
     this.propertyService.createProperty(formData).subscribe(data => {
       console.log(data)
