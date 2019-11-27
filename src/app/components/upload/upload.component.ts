@@ -100,7 +100,7 @@ export class UploadComponent implements OnInit {
             localStorage.removeItem("token");
             window.location.href = "/login";
           } else {
-            alert("Error al actualizar propiedad, por favor trate de nuevo");
+            alert("Error al crear propiedad, por favor trate de nuevo");
           }
         }
       );
@@ -111,10 +111,6 @@ export class UploadComponent implements OnInit {
     e.preventDefault();
     const formData: any = new FormData();
     formData.append('property_id', this.propertyQuery['property_id'])
-    const fileInput = document.getElementById("files") as HTMLInputElement;
-    for (var i = 0; i < fileInput.files.length; i++) {
-      formData.append("files[]", fileInput.files[i], fileInput.files[i].name);
-    }
 
     const sale = this.propertyQuery["sale"] === "on" ? true : false;
     formData.append("title", this.propertyQuery["title"]);

@@ -6,8 +6,9 @@
           <div
             class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
           >
-            <h1 class="display-4 py-2 text-truncate font">Nueva propiedad</h1>
-            <div class="px-2">
+          <h1 *ngIf="!isUpdate" class="display-4 py-2 text-truncate font">Nueva propiedad</h1>
+          <h1 *ngIf="isUpdate" class="display-4 py-2 text-truncate font">Actualizar propiedad</h1>
+          <div class="px-2">
               <form action="" class="justify-content-center">
                 <div class="form-group">
                   <input
