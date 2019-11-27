@@ -14,8 +14,8 @@ const httpOptions = {
 })
 export class LoginService {
 
-  private loginRoute = 'http://localhost:5000/api/login';
-  private logoutRoute = 'http://localhost:5000/api/logout';
+  private loginRoute = 'https://grupo-camporota-api.herokuapp.com/api/login';
+  private logoutRoute = 'https://grupo-camporota-api.herokuapp.com/api/logout';
 
   constructor(private http: HttpClient) { }
 
