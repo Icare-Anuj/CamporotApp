@@ -1,5 +1,7 @@
 
-
+#carouselExampleIndicators {
+    height: 500px !important;
+}
 .hidden {
     // margin-bottom: 40px;
     overflow: hidden;
@@ -79,6 +81,7 @@ img {
     color: darkkhaki;
     border: 1px solid darkkhaki;
     border-radius : 0;
+    outline: 1px solid;
 }
 
 .arrow {
@@ -92,10 +95,64 @@ img {
     height: initial;
     border-radius: 0px;
     padding-left: 10px;
+    outline: 1px solid palegoldenrod;
+}
+
+.btn {
+    outline: 1px solid palegoldenrod !important;
 }
 
 .container {
     height: 190px;
     top: 21px;
     position: relative;
+}
+
+.location-icon {
+    font-size: 3em; 
+    color: darkkhaki;
+}
+
+// Phones
+@media (max-width: 414px) { 
+    img {
+        height: 350px !important;
+    }
+
+    #carouselExampleIndicators {
+        height: 350px !important;
+    }
+
+    .carousel-inner {
+        height: 350px !important;
+    }
+
+    .location-icon {
+        font-size: 2.5em; 
+        color: darkkhaki;
+    }
+
+    .find {
+        font-size: 1.8em;
+        font-family: "Kapsalon-Regular";
+    }
+
+    .tab{
+        height: 48px;
+    }
+
+    button {
+        font-size: 13px !important;
+    }
+
+    .location-input {
+        flex: 0 0 58.333333% !important;
+        max-width: 58.333333% !important;
+        font-size: 13px;
+    }
+
+    .search-button {
+        height: 40px;
+        outline: 1px solid palegoldenrod;
+    }
 }

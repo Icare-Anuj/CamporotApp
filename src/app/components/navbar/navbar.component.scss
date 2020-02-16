@@ -1,4 +1,10 @@
+nav {
+    outline: 1px solid palegoldenrod;
+}
 
+.navbar {
+    height: 80px;
+}
 .col {
     border: 0;
     outline: none;
@@ -7,7 +13,7 @@
 
 .home{
     font-family: 'Kapsalon-Regular';
-    font-size: 42px;
+    font-size: 40px;
     color: white;
     margin-left: 5px;
     cursor: pointer;
@@ -24,17 +30,16 @@ span:focus{
     margin-right: -15px;
     margin-left: -15px;
     width: -webkit-fill-available !important; 
+    // align-items: center;
 }
 
-.col-1 {
-
-    flex: 0 0 6.333333%;
-    max-width: 0.33%;
-    
+.navbar-brand {
+    height: 80px;
 }
+
 
 .logo {
-    margin-top: -14px;
+   margin: unset;
 }
 
 .color {
@@ -45,15 +50,61 @@ span:focus{
     color: darkkhaki;
     font-size: 2em;
     cursor: pointer;
+    padding-right: 30px;
 }
 
 .logIn {
-    position: relative;
-    top: 49px;
-    font-size: 12px;
-    right: 30px;
-    color: white;
+    color: darkkhaki;
+    font-size: 2em;
     cursor: pointer;
+    padding-right: 4%;
     
+}
+
+.icon-col {
+    margin-left: 5px;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.icon-span {
+    color: white;
+    font-size: 13px;
+
+}
+
+// Phones
+@media (max-width: 414px) { 
+
+    .loginIcon {
+        color: darkkhaki;
+        font-size: 1.3em;
+        cursor: pointer;
+        padding-right: 30px;
+    }
+
+    .navbar {
+        padding-top: 15px;
+    }
+
+    .home {
+        font-family: "Kapsalon-Regular";
+        font-size: 30px;
+        color: white;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    img {
+        height: 40px !important;
+        width: 40px !important;
+    }
+
+    .icon-span {
+        color: white;
+        font-size: 11px;
+    }
 }
 

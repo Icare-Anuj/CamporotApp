@@ -1,7 +1,7 @@
 
 
 .card {
-    height: 210px;
+    // height: 240px;
     margin-bottom: 20px;
     position: relative;
     display: flex;
@@ -13,6 +13,9 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     margin:auto;
+}
+.container {
+    background: black;
 }
 
 .envelope {
@@ -39,7 +42,7 @@
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
-    width: 330px !important;
+    // width: 330px !important;
     background-color: gainsboro;
    
 }
@@ -60,7 +63,7 @@
     background-color: darkkhaki;
     margin-top: 9px;
     color: white;
-    margin-left: 18px;
+    // margin-left: 18px;
 }
 
 
@@ -70,6 +73,11 @@
 
 .cursor {
     cursor: default;
+
+}
+
+.mobile-col {
+    color: white;
 }
 
 .noValues {
@@ -83,17 +91,21 @@
     margin-top: -8px;
     border: 0;
     outline: none;
+    background-color: inherit;
+    margin: auto;
 }
 .info {
     margin-top: -8px;
     border: 0;
     outline: none;
+    background-color: inherit;
+    margin: auto;
 }
 .createButton {
     background-color: #444444;
     margin-top: 9px;
     color: white;
-    margin-left: 18px;
+    // margin-left: 18px;
     width: 100%;
 }
 
@@ -102,3 +114,57 @@ i{
     outline: none;
 }
 
+// Phones
+@media (max-width: 992px) { 
+
+    div, button, p, input, span {
+        font-size: 13px;
+    }
+
+    h4 {
+        font-size: 16px !important;
+        color: #444444
+    }
+
+    h5 {
+        font-size: 16px;
+        font-weight: 800;
+        color: #444444;
+    }
+
+    .col-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .mobile-col {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .card {
+        margin-top: 23px;
+        height: auto;
+
+    }
+
+    .no-gutters {
+        // border: 1px solid palegoldenrod;
+        margin-bottom: 23px;
+    }
+
+    .card-body {
+        background-color: white !important;
+    }
+
+    // .info {
+    //     background-color: inherit;
+    //     margin: auto;
+    // }
+
+    // .call {
+    //     background-color: inherit;
+    //     margin: auto;
+    // }
+
+}

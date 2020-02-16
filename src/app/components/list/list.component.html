@@ -1,7 +1,7 @@
 <div class="container">
     <br>
-    <div class="row searchRow">
-        <p class="col cursor">Se encontraron {{amount}} resultados:</p>
+    <div class="row">
+        <p class="col cursor mobile-col">Se encontraron {{amount}} resultados:</p>
         <!-- <input class="col" class="inputSearch col" type="text" value="Madrid" /> -->
         <div class="input-group mb-3 col">
             <input type="text" class="form-control" [placeholder]="location" aria-label="Recipient's username"
@@ -15,7 +15,7 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-3">
+        <div class="col-4">
             <div class="specialCard">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -87,19 +87,19 @@
                             <h5 class="card-text cursor">{{property.priceToString}}&#8364;</h5>
                             <p class="card-text cursor">{{truncateString(property.description, 46)}}</p>
                             <div class="row justify-content-end">
-                                    <button class="col-3 info"  *ngIf="isLogin" (click)="edit(property)">
+                                    <button class="col-3 info cursor"  *ngIf="isLogin" (click)="edit(property)">
                                             <i class="fas fa-edit"></i>
                                             <p class="card-text"><small class="text-muted">Editar</small></p>
                                     </button>
-                                    <button class="col-3 info" (click)="delete(property.property_id)" *ngIf="isLogin">
+                                    <button class="col-3 info cursor" (click)="delete(property.property_id)" *ngIf="isLogin">
                                             <i class="fas fa-trash"></i>
                                             <p class="card-text"><small class="text-muted">Eliminar</small></p>
                                     </button>
-                                    <button class="col-3 info" (click)="goToDetail(property)" >
+                                    <button class="col-3 info cursor" (click)="goToDetail(property)" >
                                             <i class="fas fa-plus envelope"></i>
                                             <p class="card-text"><small class="text-muted">Ver más</small></p>
                                         </button>
-                                    <button class="col-3 call">
+                                    <button class="col-3 info cursor">
                                         <i class="fas fa-envelope envelope"></i>
                                         <p class="card-text"><small class="text-muted">Contactar</small></p>
                                     </button>

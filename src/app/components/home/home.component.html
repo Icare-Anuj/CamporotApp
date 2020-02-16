@@ -1,5 +1,6 @@
+
 <div class="hidden">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 500px !important;">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -42,7 +43,7 @@
 
     <div class="backgroudColors">
         <div class="row justify-content-center">
-            <span style="font-size: 3em; color: darkkhaki;">
+            <span class="location-icon">
                 <i class="fas fa-map-marker-alt icon-large"></i>
             </span>
 
@@ -80,9 +81,9 @@
                         (click)="chooseType(option)">{{option}}</button>
                 </div>
             </div>
-            <input type="text" class="form-control col-5 input" placeholder="Municipio, barrio..." aria-label="Username"
+            <input type="text" class="form-control col-5 input location-input" placeholder="Municipio, barrio..." aria-label="Username"
                 aria-describedby="basic-addon1" (change)="handleChange($event)">
-            <button class="col btn btn-dark" type="button" (click)="submit()"> Buscar</button>
+            <button class="col btn btn-dark search-button" type="button" (click)="submit()"> Buscar</button>
 
         </div>
 

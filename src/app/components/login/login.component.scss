@@ -46,3 +46,28 @@ form:before {
 .lightBlue{
     background-color: darkkhaki;
 }
+
+
+// Phones
+@media (max-width: 414px) { 
+
+    .lightBlue {
+        font-size: 16px;
+    }
+
+    .font {
+        font-size: 51px;
+    }
+}
+
+// Iphone 5/5s
+@media (max-width: 320px) and (max-height:568px) { 
+
+    .lightBlue {
+        font-size: 14px;
+    }
+
+    .form-control {
+        font-size: 14px !important;
+    }
+}

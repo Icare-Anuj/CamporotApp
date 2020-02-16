@@ -1,5 +1,9 @@
+label {
+    color: palegoldenrod;
+}
+
 .background {
-  background-color: darkkhaki;
+  // background-color: darkkhaki;
   width: 100vw;
   height: 100vh;
 }
@@ -31,4 +35,24 @@ form:before {
 .lightBlue{
   background-color: #444444;
   color: white;
+  border: 1px solid palegoldenrod;
+  border-radius: 5px;
+}
+
+
+.min-vh-100 {
+  background-color: black;
+}
+
+
+// Phones
+@media (max-width: 414px) { 
+
+  .font {
+    font-size: 48px;
+  }
+
+  .lightBlue {
+    font-size: 15px;
+  }
 }

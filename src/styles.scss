@@ -10,6 +10,15 @@
     src: url("assets/fonts/Kapsalon\ Print\ DEMO.otf") format("opentype");
   }
 
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: -webkit-fill-available !important;
+    background: #222 url('assets/img/fondo.jpg') center center;
+    background-size: cover;
+  }
+
 //   @font-face {
 //     font-family: Traffolight;
 //     src: url("assets/fonts/Traffolight.otf") format("opentype");
