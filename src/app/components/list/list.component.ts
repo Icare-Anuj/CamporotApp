@@ -125,6 +125,7 @@ export class ListComponent implements OnInit {
     this.filterService.filter(this.filterQuerys).subscribe(
       data => {
         this.properties = data;
+        console.log(data)
         this.dataStorageService.filterQuerys = this.properties;
         this.action = this.filterQuerys.action;
         localStorage.removeItem("action");

@@ -70,7 +70,7 @@
                 Aplicar filtros
             </button>  
                 
-            <button class="btn createButton"  type="button" (click)="goToUploadScreen()">
+            <button class="btn createButton"  *ngIf="isLogin" type="button" (click)="goToUploadScreen()">
                 Crear propiedad
             </button>  
             

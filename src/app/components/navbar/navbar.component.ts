@@ -27,15 +27,15 @@ export class NavbarComponent implements OnInit {
   }
 
   goToLogout() {
+      localStorage.removeItem('token');
        this.loginService.logout().subscribe(data => {
          if (data.success === true) {
-          localStorage.removeItem('token');
-          this.router.navigate(['/home'])
-          this.isLogin= false;
-         } else {
-           alert('Error en logout')
-         }
-       });
+           this.isLogin= false;
+          } else {
+            alert('Error en logout')
+          }
+        });
+        window.location.href = '/home'
 
 
   }

@@ -25,10 +25,10 @@ export class LoginService {
   }
 
   logout(): Observable<any> {
+    const token = localStorage.getItem('token') ? localStorage.getItem('token').replace(/"/g, '') : ''
     const httpOptions = {
       headers: new HttpHeaders({
-        // "Content-Type": "multipart/form-data",
-        'Authorization': `Bearer ${localStorage.getItem('token').replace(/"/g, '')}`
+        'Authorization': `Bearer ${token}`
       })
     };
     return this.http.delete<any>(this.logoutRoute, httpOptions);

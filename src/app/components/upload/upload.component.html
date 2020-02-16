@@ -6,8 +6,9 @@
           <div
             class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
           >
-            <h1 class="display-4 py-2 text-truncate font">Nueva propiedad</h1>
-            <div class="px-2">
+          <h1 *ngIf="!isUpdate" class="display-4 py-2 text-truncate font">Nueva propiedad</h1>
+          <h1 *ngIf="isUpdate" class="display-4 py-2 text-truncate font">Actualizar propiedad</h1>
+          <div class="px-2">
               <form action="" class="justify-content-center">
                 <div class="form-group">
                   <label for="titulo">Título</label>
@@ -17,8 +18,8 @@
                     class="form-control"
                     placeholder="Titulo"
                     (change)="handleChange($event)"
-                    id="titulo"
-                    name="titulo"
+                    id="title"
+                    name="title"
                     required
                   />
                 </div>
@@ -30,8 +31,8 @@
                     class="form-control"
                     placeholder="Descripcion"
                     (change)="handleChange($event)"
-                    id="descripcion"
-                    name="descripcion"
+                    id="description"
+                    name="description"
                   />
                 </div>
 
@@ -39,13 +40,15 @@
                     <label for="tipo">Modalidad</label>
                   <input
                   [(ngModel)]="tipo"
-                    type="text"
                     class="form-control"
-                    placeholder="Tipo"
                     (change)="handleChange($event)"
-                    id="tipo"
-                    name="tipo"
-                  />
+                    id="kind"
+                    name="kind">
+                    <option value="Piso">Piso</option>
+                    <option value="Vivienda">Vivienda</option>
+                    <option value="Edificio">Edificio</option>
+                    <option value="Terreno">Terreno</option>
+                  </select>
                 </div>
 
                 <div class="form-group">
@@ -69,8 +72,8 @@
                     class="form-control"
                     placeholder="Precio"
                     (change)="handleChange($event)"
-                    id="precio"
-                    name="precio"
+                    id="price"
+                    name="price"
                   />
                 </div>
 
@@ -81,34 +84,34 @@
                     type="checkbox"
                     placeholder="Precio"
                     (change)="handleChange($event)"
-                    name="compra"
+                    name="sale"
                   />
                 </div>
 
                 <div class="form-group">
                   <input
+                    *ngIf="!isUpdate"
                     type="file"
                     multiple="true"
                     class="form-control"
-                    (change)="handleChange($event)"
                     name="files"
                     id="files"
                   />
                 </div>
 
-                <button *ngIf="!isUpdate"
+                <button *ngIf="isUpdate"
                   type="submit"
                   class="btn lightBlue btn-lg"
                   (click)="onUpdate($event)"
                 >
-                  Crear
+                  Actualizar
                 </button>
-                <button *ngIf="isUpdate"
+                <button *ngIf="!isUpdate"
                 type="submit"
                 class="btn lightBlue btn-lg"
                 (click)="onSubmit($event)"
               >
-                Actualizar
+                Crear
               </button>
               </form>
             </div>
