@@ -20,6 +20,11 @@ export class ListComponent implements OnInit {
   location: string;
   prices = [100000, 200000, 300000, 400000, 700000, 1000000];
   options = ["Vivienda", "Piso", "Edificio", "Terreno"];
+  roomAmount = ["1", "2", "3", "4+"];
+  booleans = ["Si", "No"]
+  room: string = "1";
+  bath: string = "1";
+  furnished = "No"
   noValues = false;
   properties: PropertyModel[];
   isLogin: boolean;
@@ -27,7 +32,7 @@ export class ListComponent implements OnInit {
     private filterService: FilterService,
     private dataStorageService: DataStorageService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (
@@ -52,8 +57,19 @@ export class ListComponent implements OnInit {
         // const image =this. properties[x].images.length > 0 ? this.properties[x].images[0].path : require("../../../assets/img/logo.jpg")
       }
     } else {
-      this.amount = 0;
-      this.noValues = true;
+     
+      this.filterQuerys = new FilterModel();
+      this.filterQuerys.action = 'Comprar'
+      this.filterQuerys.type = 'Vivienda';
+      this.filterQuerys.location = 'Madrid';
+      this.filterQuerys.sale = true;
+      this.location = 'Madrid';
+      this.filterApply();
+      // this.filterService.filter(this.filterQuerys).subscribe(
+      //   data => {
+      //     this.properties = data;
+      //   });
+
     }
 
     this.action = localStorage.getItem("action");
@@ -82,26 +98,64 @@ export class ListComponent implements OnInit {
       this.location === undefined ||
       this.location === "null"
     ) {
-      this.location = "Provincia, barrio, etc";
+      this.location = "Dirección o provincia";
+      
     } else {
       this.filterQuerys.location = this.location;
     }
-    console.log(this.filterQuerys);
-    this.priceMin = "Precio desde";
-    this.priceMax = "Precio hasta";
+
+    let maxLocal = localStorage.getItem('max');
+    let minLocal = localStorage.getItem('min');
+
+    if(maxLocal && (maxLocal !== null  || maxLocal !== undefined)) {
+      this.priceMax = maxLocal.toLocaleString();
+    } else {
+      this.priceMax = "Precio hasta";
+    };
+
+    if(minLocal && (minLocal !== null  || minLocal !== undefined)) {
+      this.priceMin = minLocal.toLocaleString();
+    } else {
+      this.priceMin = "Precio desde";
+    };
+
+
+
+  
+
   }
 
   priceMinSelected(price: string) {
     this.filterQuerys.price_min = parseFloat(price);
-    console.log(this.filterQuerys);
     this.priceMin = price;
+    localStorage.setItem('min', this.priceMin.toLocaleString());
     // this.priceMin = price.toString().concat('€');
   }
 
   priceMaxSelected(price: string) {
     this.filterQuerys.price_max = parseFloat(price);
     this.priceMax = price;
-    console.log(this.filterQuerys);
+    localStorage.setItem('max', this.priceMax.toLocaleString());
+  }
+
+  roomSelected(room: string) {
+    this.filterQuerys.rooms = room;
+    this.room = room;
+  }
+
+  bathSelected(bath: string) {
+    this.filterQuerys.bathrooms = bath;
+    this.bath = bath;
+  }
+
+  furnishSelected(bool: string) {
+    if(bool === 'Si') {
+      this.filterQuerys.furnished = true;
+    } else {
+      this.filterQuerys.furnished = false;
+    }
+   
+    this.furnished = bool;
   }
 
   actionSelected(action: string) {
@@ -132,6 +186,8 @@ export class ListComponent implements OnInit {
         localStorage.setItem("action", this.action);
         localStorage.removeItem("type");
         localStorage.setItem("type", this.type);
+        this.priceMin = localStorage.getItem('min');
+        this.priceMax = localStorage.getItem('max');
 
         this.type = this.filterQuerys.type;
         if (data.length >= 1) {

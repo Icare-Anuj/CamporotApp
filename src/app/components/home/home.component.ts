@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   filter: FilterModel;
   aux:any;
   inputValue = '';
+  isLoading = false;
 
   constructor(
     private _router: Router,
@@ -74,38 +75,14 @@ export class HomeComponent implements OnInit {
 
   async submit() {
 
-    // let string = '';
-    // for(var val in this.filter) {
-    //   console.log(this.filter[val])
-    //   if(this.filter[val] === undefined || this.filter[val] === null ) {
-    //   } else {
-    //     string += ' '+this.filter[val];
-    //   }
-    // }
-
-    // localStorage.setItem('action', JSON.stringify(this.filter.action));
-    // localStorage.setItem('type', JSON.stringify(this.filter.type));
-    // localStorage.setItem('location', JSON.stringify(this.filter.location));
-
-
-    // this.filterService.filter(string).subscribe(data =>{
-    //   console.log(data)
-    //   if (data === null || data === undefined || data.length === 0) {
-    //     return;
-    //   } else {
-    //    JSON.stringify(localStorage.setItem('searchResult',data));
-    //   }
-    // });
-
-    // this._router.navigate(['/list']);
-
 
     localStorage.setItem('action', this.filter.action);
     localStorage.setItem('type', this.filter.type);
     localStorage.setItem('location', this.filter.location);
-
+    this.isLoading = true;
 
      this.filterService.filter(this.filter).subscribe(data =>{
+       this.isLoading = false;
        console.warn(data)
         // localStorage.setItem('searchResult', data)
         this.dataStorageService.filterQuerys = data;

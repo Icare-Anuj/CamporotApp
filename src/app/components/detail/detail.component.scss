@@ -5,11 +5,16 @@
 }
 .color {
     background-color: darkkhaki;
+    border-radius: 10px 10px 0px 0px;
 }
 p {
     font-family: 'Kapsalon-Regular';
-    font-size: 22px
+    font-size: 22px;
 }
+.margin {
+    margin: auto;
+}
+
 .hidden {
     // margin-bottom: 40px;
     overflow: hidden;
@@ -19,5 +24,78 @@ p {
     color: white;
 }
 .top {
-    margin-top: -25px;
+    margin-top: 25px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card {
+    border: none !important;
+}
+
+.special {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.no-radius {
+    border-radius: 0px 0px 0px 0px;
+}
+
+.first {
+    border-radius: 10px 0px 0px 0px;
+}
+
+.middle {
+    border-radius: 0px;
+}
+
+.last {
+    border-radius: 0px 10px 0px 0px;
+}
+
+.firstTwo {
+    border-radius:0px 0px 0px 10px;
+
+}
+
+.lastTwo {
+    border-radius:0px 0px 10px 0px
+}
+
+.gray {
+    border: 2px solid gray !important;
+}
+
+.yellow {
+    border: 2px solid palegoldenrod !important;
+}
+
+.row-height {
+    height: 103px;
+}
+.container {
+    background-color: black;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.rowOne {
+    margin-top: 10px;
+}
+
+.beige {
+    background-color: beige;
+}
+
+.cornsilk {
+    background-color: cornsilk;
+}
+
+.rowTwo {
+    height: 103px;
+}
+
+// Phones
+@media (max-width: 414px) { 
+    .title{
+        font-size: 25px;
+    }
 }

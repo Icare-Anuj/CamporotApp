@@ -13,8 +13,8 @@
             </ng-template>
         </ngb-carousel>
     </div>
-    <div class="row">
-        <div class="card col shadow p-3 mb-5 bg-white rounded">
+    <div class="row row-height rowOne">
+        <div class="card col shadow p-3 mb-5 bg-white first">
             <div class="row justify-content-center">
                 <p>Ubicación</p>
             </div>
@@ -23,7 +23,7 @@
 
             </div>
         </div>
-        <div class="card col shadow p-3 mb-5 bg-white rounded">
+        <div class="card col shadow p-3 mb-5 bg-white middle">
             <div class="row justify-content-center">
                 <p>Tipo de vivienda</p>
             </div>
@@ -32,21 +32,147 @@
             </div>
 
         </div>
-   
-    <div class="card col shadow p-3 mb-5 bg-white rounded">
-        <div class="row justify-content-center">
-            <p>Precio</p>
-        </div>
-        <div class="row justify-content-center">
-            <span>{{property.priceToString}}&#8364;</span>
+
+        <div class="card col shadow p-3 mb-5 bg-white last">
+            <div class="row justify-content-center">
+                <p>Precio</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.priceToString}}&#8364;</span>
+            </div>
         </div>
     </div>
+
+    <div class="row row-height ">
+        <div class="card col shadow p-3 mb-5 bg-white firstTwo">
+            <div class="row justify-content-center">
+                <p>Metros cuadrados</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.state}}</span>
+
+            </div>
+        </div>
+        <div class="card col shadow p-3 mb-5 bg-white middle">
+            <div class="row justify-content-center">
+                <p>Nº dormitorios</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.kind}}</span>
+            </div>
+
+        </div>
+
+        <div class="card col shadow p-3 mb-5 bg-white lastTwo">
+            <div class="row justify-content-center">
+                <p>Nº baños</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.priceToString}}&#8364;</span>
+            </div>
+        </div>
     </div>
-    
+
     <div class="row justify-content-center color top">
-        <p>Acerca de la vivienda</p>
+        <p class="margin">Características y condiciones</p>
     </div>
-    <div class="row card shadow p-3 mb-5 bg-white rounded ">
+    <div class="row row-height rowTwo">
+        <div class="card col shadow p-3 mb-5 beige no-radius">
+            <div class="row justify-content-center">
+                <p>Calefacción</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.state}}</span>
+
+            </div>
+        </div>
+        <div class="card col shadow p-3 mb-5 cornsilk no-radius">
+            <div class="row justify-content-center">
+                <p>Orientación</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.kind}}</span>
+            </div>
+
+        </div>
+
+        <div class="card col shadow p-3 mb-5 beige no-radius">
+            <div class="row justify-content-center">
+                <p>Nº de planta</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.priceToString}}&#8364;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-height ">
+        <div class="card col shadow p-3 mb-5 beige no-radius">
+            <div class="row justify-content-center">
+                <p>Amoblado</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.state}}</span>
+
+            </div>
+        </div>
+        <div class="card col shadow p-3 mb-5 cornsilk no-radius">
+            <div class="row justify-content-center">
+                <p>Cocina equipada</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.kind}}</span>
+            </div>
+
+        </div>
+
+        <div class="card col shadow p-3 mb-5 beige no-radius">
+            <div class="row justify-content-center">
+                <p>Mascotas</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.priceToString}}&#8364;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center color top">
+        <p class="margin">Más información</p>
+    </div>
+    <div class="row row-height rowTwo">
+        <div class="card col shadow p-3 mb-5 beige no-radius">
+            <div class="row justify-content-center">
+                <p>Tiempo de contrato</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.state}}</span>
+
+            </div>
+        </div>
+        <div class="card col shadow p-3 mb-5 cornsilk no-radius">
+            <div class="row justify-content-center">
+                <p>Fianza</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.kind}}</span>
+            </div>
+
+        </div>
+
+        <div class="card col shadow p-3 mb-5 beige no-radius">
+            <div class="row justify-content-center">
+                <p>Gastos de comunidad</p>
+            </div>
+            <div class="row justify-content-center">
+                <span>{{property.priceToString}}&#8364;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center color top">
+        <p class="margin">Acerca de la vivienda</p>
+    </div>
+    <div class="row card shadow p-3 mb-5 bg-white ">
         <span class="col">
             {{property.description}}
         </span>

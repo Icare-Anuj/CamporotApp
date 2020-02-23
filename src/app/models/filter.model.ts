@@ -4,8 +4,9 @@ export class FilterModel {
     location: string;
     price_min? : number;
     price_max? : number;
-    rooms?: number;
-    bathrooms?: number;
+    rooms?: string;
+    bathrooms?: string;
+    furnished?: boolean;
     sale: boolean
 
 

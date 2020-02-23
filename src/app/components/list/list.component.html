@@ -43,25 +43,54 @@
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <span> {{priceMin.toLocaleString()}}</span>
+                        <span> {{priceMin.toLocaleString()}} &#8364;</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                         <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMinSelected(price)">
                             {{price.toLocaleString()}}&#8364;</p>
-
-
                     </div>
                 </div>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <span> {{priceMax.toLocaleString()}}</span>
+                        <span> {{priceMax.toLocaleString()}} &#8364;</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                         <p class="dropdown-item" *ngFor="let price of prices" (click)="priceMaxSelected(price)">
                             {{price.toLocaleString()}}&#8364;</p>
-
-
+                    </div>
+                </div>
+                <p class="prices cursor"> Nº dormitorios</p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span> {{room}}</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <p class="dropdown-item" *ngFor="let room of roomAmount" (click)="roomSelected(room)">
+                            {{room}}</p>
+                    </div>
+                </div>
+                <p class="prices cursor"> Nº baños</p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span> {{bath}}</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <p class="dropdown-item" *ngFor="let room of roomAmount" (click)="bathSelected(room)">
+                            {{room}}</p>
+                    </div>
+                </div>
+                <p class="prices cursor"> Amoblado </p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span> {{furnished}}</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <p class="dropdown-item" *ngFor="let bool of booleans" (click)="furnishSelected(bool)">
+                            {{bool}}</p>
                     </div>
                 </div>
             </div>

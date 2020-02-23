@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailComponent } from './components/detail/detail.component';
     LoginComponent,
     ToastComponent,
     UploadComponent,
-    DetailComponent
+    DetailComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
