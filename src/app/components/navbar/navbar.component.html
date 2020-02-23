@@ -8,13 +8,13 @@
                 <span class="home">Camporota Gruop</span>
             </div>
         </div>
-
-        <div class="col-1 loginIcon" (click)="goToLogin()" *ngIf="!isLogin">
+        <div class="col-2 loginIcon" (click)="goToLogin()" *ngIf="!isLogin">
             <div class="row justify-content-end margin-auto">
                     <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="row justify-content-end">
                     <span (click)="goToLogin()" *ngIf="!isLogin" class="icon-span">Iniciar sesión</span>
             </div>
-
         </div>
     
 
