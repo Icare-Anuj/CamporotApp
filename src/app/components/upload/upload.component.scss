@@ -6,6 +6,18 @@ textarea {
   height: 170px;
 }
 
+.special {
+  width: -webkit-fill-available;
+}
+
+.second {
+  width: inherit;
+  /* width: -webkit-fill-available; */
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+
 .background {
   // background-color: darkkhaki;
   width: 100vw;

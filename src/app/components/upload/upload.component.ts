@@ -16,8 +16,23 @@ export class UploadComponent implements OnInit {
   estado: string;
   precio: number;
   compra: boolean;
+  metros: number;
+  ubicacion: string;
+  habitaciones: number;
+  banos: number;
+  planta: number;
+  gastos: number;
+  calefaccion: boolean;
   propertyToEdit: PropertyModel;
   isUpdate: boolean;
+  zonas: string;
+  orientacion: string;
+  amoblado: boolean;
+  cocina: boolean;
+  mascotas: boolean;
+  fianza: string;
+  contrato: string;
+
   constructor(private propertyService: PropertyService) {}
 
   ngOnInit() {
@@ -43,7 +58,21 @@ export class UploadComponent implements OnInit {
         this.estado,
         this.compra,
         this.propertyToEdit.property_id,
-        this.propertyToEdit.images
+        this.propertyToEdit.images,
+        this.habitaciones,
+        this.banos,
+        this.ubicacion,
+        this.metros,
+        this.calefaccion,
+        this.gastos,
+        this.orientacion,
+        this.amoblado, 
+        this.cocina,
+        this.planta,
+        this.zonas,
+        this.mascotas,
+        this.fianza,
+        this.contrato
       );
       console.log(this.propertyQuery);
     } else {
@@ -53,10 +82,12 @@ export class UploadComponent implements OnInit {
 
   handleChange = e => {
     this.propertyQuery[e.target.name] = e.target.value;
+    console.log(this.propertyQuery);
   };
 
   onSubmit(e) {
     e.preventDefault();
+    console.warn(this.propertyQuery);
     const formData: any = new FormData();
     const fileInput = document.getElementById("files") as HTMLInputElement;
     if (fileInput.files.length == 0) {
@@ -75,6 +106,23 @@ export class UploadComponent implements OnInit {
     formData.append("state", this.propertyQuery["state"]);
     formData.append("price", this.propertyQuery["price"]);
     formData.append("sale", sale);
+    formData.append("room", this.propertyQuery["room"]);
+    formData.append("bathroom", this.propertyQuery["bathroom"]);
+    formData.append("address", this.propertyQuery["address"]);
+    formData.append("square_meters", this.propertyQuery["square_meters"]);
+    formData.append("heating", this.propertyQuery["heating"]);
+    formData.append("community_fees", this.propertyQuery["community_fees"]);
+    formData.append("orientation", this.propertyQuery["orientation"]);
+    formData.append("furnished", this.propertyQuery["furnished"]);
+    formData.append("equipped_kitchen", this.propertyQuery["equipped_kitchen"]);
+    formData.append("floor_number", this.propertyQuery["floor_number"]);
+    formData.append("common_zones", this.propertyQuery["common_zones"]);
+    formData.append("pets", this.propertyQuery["pets"]);
+    formData.append("contract_time", this.propertyQuery["contract_time"]);
+    formData.append("bond", this.propertyQuery["bond"]);
+
+
+    console.log(formData);
 
     const checkTitle = this.propertyQuery["title"] == null || this.propertyQuery["title"] == ''
     const checkDescription = this.propertyQuery["description"] == null || this.propertyQuery["description"] == ''

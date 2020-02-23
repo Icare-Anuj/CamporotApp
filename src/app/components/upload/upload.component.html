@@ -2,117 +2,193 @@
   <section id="cover" class="min-vh-100">
     <div id="cover-caption">
       <div class="container">
-        <div class="row text-white">
-          <div
-            class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
-          >
-          <h1 *ngIf="!isUpdate" class="display-4 py-2 text-truncate font">Nueva propiedad</h1>
-          <h1 *ngIf="isUpdate" class="display-4 py-2 text-truncate font">Actualizar propiedad</h1>
-          <div class="px-2">
+        <div class="row justify-content-center text-white special">
+          <div class="text-center second form ">
+            <h1 *ngIf="!isUpdate" class="display-4 py-2 text-truncate font">Nueva propiedad</h1>
+            <h1 *ngIf="isUpdate" class="display-4 py-2 text-truncate font">Actualizar propiedad</h1>
+            <div class="px-2">
               <form action="" class="justify-content-center">
                 <div class="form-group">
                   <label for="titulo">Título</label>
-                  <input
-                    [(ngModel)]="titulo"
-                    type="text"
-                    class="form-control"
-                    placeholder="Titulo"
-                    (change)="handleChange($event)"
-                    id="title"
-                    name="title"
-                    required
-                  />
+                  <input [(ngModel)]="titulo" type="text" class="form-control" placeholder="Titulo"
+                    (change)="handleChange($event)" id="title" name="title" required />
                 </div>
                 <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                  <textarea
-                  [(ngModel)]="descripcion"
-                    type="text"
-                    class="form-control"
-                    placeholder="Descripcion"
-                    (change)="handleChange($event)"
-                    id="description"
-                    name="description"
-                  ></textarea>
+                  <label for="descripcion">Descripción</label>
+                  <textarea [(ngModel)]="descripcion" type="text" class="form-control" placeholder="Descripcion"
+                    (change)="handleChange($event)" id="description" name="description"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="tipo">Modalidad</label>
-                  <select
-                  [(ngModel)]="tipo"
-                    class="form-control"
-                    (change)="handleChange($event)"
-                    id="kind"
-                    name="kind">
-                    <option value="Piso">Piso</option>
-                    <option value="Vivienda">Vivienda</option>
-                    <option value="Edificio">Edificio</option>
-                    <option value="Terreno">Terreno</option>
-                  </select>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="tipo">Modalidad</label>
+                      <select [(ngModel)]="tipo" class="form-control" (change)="handleChange($event)" id="kind"
+                        name="kind">
+                        <option value="Piso">Piso</option>
+                        <option value="Vivienda">Vivienda</option>
+                        <option value="Edificio">Edificio</option>
+                        <option value="Terreno">Terreno</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="estado">Estado</label>
+                      <input [(ngModel)]="estado" type="text" class="form-control" placeholder="Estado"
+                        (change)="handleChange($event)" id="state" name="state" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Ubicación</label>
+                        <input [(ngModel)]="ubicacion" type="text" class="form-control" placeholder="ubicacion"
+                          (change)="handleChange($event)" id="address" name="address" />
+                      </div>
+
+                    <div class="form-group">
+                      <label for="precio">Precio (€)</label>
+                      <input [(ngModel)]="precio" type="text" class="form-control" placeholder="Precio"
+                        (change)="handleChange($event)" id="price" name="price" />
+                    </div>
+
+                    <div class="form-group">
+                      <span> A la venta? </span>
+                      <input [(ngModel)]="compra" type="checkbox" placeholder="Precio" (change)="handleChange($event)"
+                        name="sale" />
+                    </div>
+
+                    <div class="form-group">
+                      <input *ngIf="!isUpdate" type="file" multiple="true" class="form-control" name="files"
+                        id="files" />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="square_meters">Metros cuadrados</label>
+                      <input [(ngModel)]="metros" type="number" class="form-control" placeholder="Metros"
+                        (change)="handleChange($event)" id="square_meters" name="square_meters" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="floor_number">Número de planta</label>
+                        <input [(ngModel)]="planta" type="number" class="form-control" placeholder="1"
+                          (change)="handleChange($event)" id="floor_number" name="floor_number" />
+                      </div>
+
+                    
+                      <div class="form-group">
+                          <label for="community_fees">Gastos de comunidad (€)</label>
+                          <input [(ngModel)]="gastos" type="number" class="form-control" placeholder="1"
+                            (change)="handleChange($event)" id="community_fees" name="community_fees" />
+                        </div>
+
+
+                    <div class="form-group">
+                        <label for="common_zones">Zonas comunes</label>
+                        <textarea [(ngModel)]="zonas" type="text" class="form-control" placeholder="Estacionamiento, trastero, etc"
+                          (change)="handleChange($event)" id="common_zones" name="common_zones" ></textarea>
+                      </div>
+
+                  </div>
+
+                  <div class="col-6">
+
+
+
+                    <div class="form-group">
+                      <label for="room">Nº habitaciones</label>
+                      <select [(ngModel)]="habitaciones" class="form-control" (change)="handleChange($event)" id="room"
+                        name="room">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4+</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="bathroom">Nº baños</label>
+                      <select [(ngModel)]="banos" class="form-control" (change)="handleChange($event)"
+                        id="bathroom" name="bathroom">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4+</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="heating">Calefacción</label>
+                      <select [(ngModel)]="calefaccion" class="form-control" (change)="handleChange($event)"
+                        id="heating" name="heating">
+                        <option [ngValue]="true">Si</option>
+                        <option [ngValue]="false">No</option>
+
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="orientation">Orientación</label>
+                      <select [(ngModel)]="orientacion" class="form-control" (change)="handleChange($event)"
+                        id="orientation" name="orientation">
+                        <option value="interior">Interior</option>
+                        <option value="exterior">Exterior</option>
+
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="furnished">Amoblado</label>
+                      <select [(ngModel)]="amoblado" class="form-control" (change)="handleChange($event)"
+                        id="furnished" name="furnished">
+                        <option [ngValue]="true">Si</option>
+                        <option [ngValue]="false">No</option>
+
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="equipped_kitchen">Cocina equipada</label>
+                      <select [(ngModel)]="cocina" class="form-control" (change)="handleChange($event)"
+                        id="equipped_kitchen" name="equipped_kitchen">
+                        <option [ngValue]="true">Si</option>
+                        <option [ngValue]="false">No</option>
+
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pets">Mascotas</label>
+                        <select [(ngModel)]="mascotas" class="form-control" (change)="handleChange($event)"
+                          id="pets" name="pets">
+                          <option [ngValue]="true">Si</option>
+                          <option [ngValue]="false">No</option>
+  
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="bond">Fianza</label>
+                          <input [(ngModel)]="fianza" type="text" class="form-control" placeholder="Nº meses"
+                            (change)="handleChange($event)" id="bond" name="bond" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contract_time">Tiempo de contrato</label>
+                            <input [(ngModel)]="contrato" type="text" class="form-control" placeholder="1 año"
+                              (change)="handleChange($event)" id="contract_time" name="contract_time" />
+                          </div>
+
+
+
+                  </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="estado">Estado</label>
-                  <input
-                  [(ngModel)]="estado"
-                    type="text"
-                    class="form-control"
-                    placeholder="Estado"
-                    (change)="handleChange($event)"
-                    id="estado"
-                    name="estado"
-                  />
-                </div>
-
-                <div class="form-group">
-                    <label for="precio">Precio</label>
-                  <input
-                  [(ngModel)]="precio"
-                    type="text"
-                    class="form-control"
-                    placeholder="Precio"
-                    (change)="handleChange($event)"
-                    id="price"
-                    name="price"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <span> A la venta? </span>
-                  <input
-                  [(ngModel)]="compra"
-                    type="checkbox"
-                    placeholder="Precio"
-                    (change)="handleChange($event)"
-                    name="sale"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <input
-                    *ngIf="!isUpdate"
-                    type="file"
-                    multiple="true"
-                    class="form-control"
-                    name="files"
-                    id="files"
-                  />
-                </div>
-
-                <button *ngIf="isUpdate"
-                  type="submit"
-                  class="btn lightBlue btn-lg"
-                  (click)="onUpdate($event)"
-                >
+                <button *ngIf="isUpdate" type="submit" class="btn lightBlue btn-lg" (click)="onUpdate($event)">
                   Actualizar
                 </button>
-                <button *ngIf="!isUpdate"
-                type="submit"
-                class="btn lightBlue btn-lg"
-                (click)="onSubmit($event)"
-              >
-                Crear
-              </button>
+                <button *ngIf="!isUpdate" type="submit" class="btn lightBlue btn-lg" (click)="onSubmit($event)">
+                  Crear
+                </button>
               </form>
             </div>
           </div>
