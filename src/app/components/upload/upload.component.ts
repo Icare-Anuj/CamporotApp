@@ -100,24 +100,28 @@ export class UploadComponent implements OnInit {
     }
 
     const sale = this.propertyQuery["sale"] === "on" ? true : false;
+    const pets = this.propertyQuery["pets"] === "1: false" ? false : true
+    const furnished = this.propertyQuery["furnished"] === "1: false" ? false : true
+    const heating = this.propertyQuery["heating"] === "1: false" ? false : true
+    const equipped_kitchen = this.propertyQuery["equipped_kitchen"] === "1: false" ? false : true
     formData.append("title", this.propertyQuery["title"]);
     formData.append("description", this.propertyQuery["description"]);
     formData.append("kind", this.propertyQuery["kind"]);
     formData.append("state", this.propertyQuery["state"]);
     formData.append("price", this.propertyQuery["price"]);
     formData.append("sale", sale);
-    formData.append("room", this.propertyQuery["room"]);
-    formData.append("bathroom", this.propertyQuery["bathroom"]);
+    formData.append("rooms", +this.propertyQuery["room"]);
+    formData.append("bathrooms", +this.propertyQuery["bathroom"]);
     formData.append("address", this.propertyQuery["address"]);
-    formData.append("square_meters", this.propertyQuery["square_meters"]);
-    formData.append("heating", this.propertyQuery["heating"]);
+    formData.append("square_meters", +this.propertyQuery["square_meters"]);
+    formData.append("heating", heating);
     formData.append("community_fees", this.propertyQuery["community_fees"]);
     formData.append("orientation", this.propertyQuery["orientation"]);
-    formData.append("furnished", this.propertyQuery["furnished"]);
-    formData.append("equipped_kitchen", this.propertyQuery["equipped_kitchen"]);
+    formData.append("furnished", furnished);
+    formData.append("equipped_kitchen", equipped_kitchen);
     formData.append("floor_number", this.propertyQuery["floor_number"]);
     formData.append("common_zones", this.propertyQuery["common_zones"]);
-    formData.append("pets", this.propertyQuery["pets"]);
+    formData.append("pets", pets);
     formData.append("contract_time", this.propertyQuery["contract_time"]);
     formData.append("bond", this.propertyQuery["bond"]);
 
