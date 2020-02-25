@@ -235,22 +235,25 @@ export class ListComponent implements OnInit {
   }
 
   delete(id: string) {
-    this.filterService.delete(id).subscribe(data => {
-      if (data.success === true) {
-        this.properties = this.properties.filter(item => item.property_id !== id);
-      } else {
-        alert("Error al borrar la propiedad deseada");
-      }
-    });
+    let erase = confirm("Seguro que quiere eliminar la propiedad?")
+    if (erase) {
+      this.filterService.delete(id).subscribe(data => {
+        if (data.success === true) {
+          this.properties = this.properties.filter(item => item.property_id !== id);
+        } else {
+          alert("Error al borrar la propiedad deseada");
+        }
+      });
+    }
   }
 
   goToUploadScreen() {
     localStorage.removeItem('propertyToEdit');
     this.router.navigate(['/upload']);
-
   }
 
   edit(property: PropertyModel) {
+    console.log(property)
     localStorage.setItem('propertyToEdit', JSON.stringify(property));
     this.router.navigate(['/upload']);
   }

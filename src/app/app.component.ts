@@ -14,9 +14,9 @@ export class AppComponent {
 
   }
 
-  ngOnInit() {
- 
-    }
+  async ngOnInit() {
+    await fetch('https://grupo-camporota-api.herokuapp.com/api/')
+  }
   
 
   onActivate(e) {
